@@ -1,0 +1,24 @@
+#!/bin/bash
+
+sudo apt-get install xclip
+
+sudo easy_install -ZU autopep8 
+
+mv -f ~/vim ~/vim_old
+cd ~/ && git clone https://github.com/ma6174/vim.git
+
+mv -f ~/vim ~/.vim
+
+mv -f ~/.vim ~/.vim_old
+mv -f ~/.vimrc ~/.vimrc_old
+
+mv -f ~/.vim/.vimrc ~/
+
+
+mv vimrc_ljc .vimrc
+
+#安装Vundle https://github.com/VundleVim/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+vim +PluginInstall +qall
+
