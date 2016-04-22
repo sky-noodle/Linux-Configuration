@@ -17,7 +17,6 @@ echo 'export PS1="\[\e[32;1m\][\u@\h:\[\e[34;1m\]\w\[\e[32;1m\]]$>\[\e[0m\]"' >>
 
 echo "开始安装 Vim & GVim ctags Vundle"
 apt-get install vim-gtk ctags cscope astyle
-#install vimdoc@cn from vimcdoc.sourceforge.net
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "开始安装 git"
@@ -25,7 +24,7 @@ apt-get install git
 #配置ssh keys与gpg keys
 
 echo "开始安装 ssh"
-apt-get install ssh    #其实就是openssh(sever&client)
+apt-get install ssh    #其实就是openssh
 /etc/init.d/ssh start  #启动ssh
 #cd ~; ssh-keygen -t rsa; cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys; ssh localhost
 
