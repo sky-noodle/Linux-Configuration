@@ -17,12 +17,12 @@ svn checkout https://github.com/Will-Grindelwald/Linux-Configuration/trunk/Vim ~
 mv -f ~/vim_ljc ~/.vim
 mv -f ~/.vim/.vimrc ~/.vimrc
 rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup
+vim Ljc -c "helptags ~/.vim/doc" -c q
 
 # Plugin
-echo "即将安装完成" >> Ljc
+echo "即将安装完成"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim Ljc +PluginInstall +qall
-vim Ljc -c "helptags ~/.vim/doc" -c q
-rm Ljc
 echo "安装完成"
+rm -rf Ljc
 
