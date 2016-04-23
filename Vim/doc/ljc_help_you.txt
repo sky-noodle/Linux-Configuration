@@ -8,7 +8,6 @@ CONTENTS                                               *ljc_help_you_Contents*
 
     1. .vimrc 文件的补充...........................|AppendOfVimrc|
     2. 快捷键......................................|ShortcutKey|
-    3. 插件........................................|PluginRrelated|
 
 ==============================================================================
  1. .vimrc 文件的补充                                        *AppendOfVimrc*
@@ -42,54 +41,7 @@ CONTENTS                                               *ljc_help_you_Contents*
 
 "} // end of 1. Vundle related
 
-" 3. autocmd {
-" 以下dict效果不知, 我没添加, 文件来自 github.com/ma6174/vim
-"au FileType c setlocal dict+=~/.vim/dict/c.dict
-"au FileType cpp setlocal dict+=~/.vim/dict/cpp.dict
-"au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
-"au FileType css setlocal dict+=~/.vim/dict/css.dict
-"au FileType html setlocal dict+=~/.vim/dict/javascript.dict
-"au FileType html setlocal dict+=~/.vim/dict/css.dict
-"au FileType scale setlocal dict+=~/.vim/dict/scale.dict
-"au FileType javascript setlocal dict+=~/.vim/dict/javascript.dict
-"} // end of 3. autocmd
-
-==============================================================================
- 2. 快捷键                                                      *ShortcutKey*
-                                                   返回|ljc_help_you_Contents|
-------------------------------------------------------------------------------
-
-mapleader = "\\"
-imap <C-e> <ESC>
-nmap lA    0
-nmap lE    $
-nmap qq    %    " 跳到匹配的结对符处
-" 输入括号、引号自动匹配
-" Ctrl + a, x, c, v, z, y  实现的很好, 几乎与 windows 一样
-" PS: 选择文本块时, 要注意: 光标随后的字符也被选上了, 但并不高亮。比较好的方法: 双击要选的词
-" 上下移行 Alt + Up/Down
-" tT: 按自己定义的缩进规则重新缩进, 即:retab
-" cS: clear trailing spaces
-" cM: clear trailing symbol of ^M
-" cL: clear blank lines
-" space: normal 模式下切换光标所在行的折叠与否
-" F2: diff mode     " 我没设置, 见vimrc
-" F3: Taglist
-" F4: Tagbar
-" F5: 编译运行, 支持C/C++、Java、shell、python、html、mkd
-" F6: 重新生成 tag & cscope 文件, 并更新
-" F7: 仅编译, Only for C/C++
-" F9: NERDTree
-" F11: 全屏开/关, Only for gvim, 终端自带, "其实也没设, 见vimrc"
-" F12: 代码格式化
-" Alt + F12: 添加文件头, 可以到 .vimrc 中自己改
-" 自动更新 Last Update Time
-
-==============================================================================
- 3. 插件                                                      *PluginRrelated*
-                                                   返回|ljc_help_you_Contents|
-------------------------------------------------------------------------------
-
+" 5. Plugin setting {
 " 5.0 Vundle
 " see more :h vundle
 " :PluginList          - list configured plugins
@@ -100,6 +52,10 @@ nmap qq    %    " 跳到匹配的结对符处
 
 " 5.1 ctags setting
 " useage: 为源码建立一个 tag 数据库, cd 到项目根目录下 $ ctags -R *, 更全的命令参数见 map
+" 按下 F6 重新生成 tag & cscope 文件, 并更新 taglist
+"--c++-kinds=+p+l+x  : 为 C++ 文件增加函数原型的标签, p、l、x 默认不产生标签
+"--fields=+liaS      : 在标签文件中加入继承信息(i), 类成员的访问控制信息(a), 以及函数的指纹(S), (l)是YCM插件要求的
+"--extra=+q          : 为标签增加类修饰符, 如果没有此选项将不能对类成员补全
 
 " 5.2 TagList setting
 " see more :h taglist.txt
@@ -167,4 +123,36 @@ nmap qq    %    " 跳到匹配的结对符处
 " Ctrl+X Ctrl+I  根据头文件内关键字补全
 " Ctrl+X Ctrl+L  整行补全
 " Ctrl+X Ctrl+N  根据当前文件里关键字补全
+"} // end of 5. Plugin setting
+
+==============================================================================
+ 2. 快捷键                                                      *ShortcutKey*
+                                                   返回|ljc_help_you_Contents|
+------------------------------------------------------------------------------
+
+mapleader = "\\"
+imap <C-e> <ESC>
+nmap lA    0
+nmap lE    $
+nmap qq    %    " 跳到匹配的结对符处
+" 输入括号、引号自动匹配
+" Ctrl + a, x, c, v, z, y  实现的很好, 几乎与 windows 一样
+" PS: 选择文本块时, 要注意: 光标随后的字符也被选上了, 但并不高亮。比较好的方法: 双击要选的词
+" 上下移行 Alt + Up/Down
+" tT: 按自己定义的缩进规则重新缩进, 即:retab
+" cS: clear trailing spaces
+" cM: clear trailing symbol of ^M
+" cL: clear blank lines
+" space: normal 模式下切换光标所在行的折叠与否
+" F2: diff mode     " 我没设置, 见vimrc
+" F3: Taglist
+" F4: Tagbar
+" F5: 编译运行, 支持C/C++、Java、shell、python、html、mkd
+" F6: 重新生成 tag & cscope 文件, 并更新
+" F7: 仅编译, Only for C/C++
+" F9: NERDTree
+" F11: 全屏开/关, Only for gvim, 终端自带, "其实也没设, 见vimrc"
+" F12: 代码格式化
+" Alt + F12: 添加文件头, 可以到 .vimrc 中自己改
+" 自动更新 Last Update Time
 

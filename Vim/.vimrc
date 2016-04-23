@@ -156,10 +156,10 @@ if (has("gui_running"))
     "map <silent> <F11> :call call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 else
     "colorscheme github      " 越下面的主题我越喜欢
-    "colorscheme ron
+    colorscheme ron
     let g:rehash256 = 1
     let g:molokai_original = 1
-    colorscheme molokai
+    "colorscheme molokai
     set wrap
     set linebreak           " 不在单词中间断行
 endif
@@ -307,12 +307,8 @@ map  <F3> :TagbarClose<CR>:TlistToggle<CR>
 imap <F3> <ESC>:TagbarClose<CR>:TlistToggle<CR>
 map  <F4> :TlistClose<CR>:TagbarToggle<CR>
 imap <F4> <Esc>:TlistClose<CR>:TagbarToggle<CR>
-" 按下 F6 重新生成 tag & cscope 文件, 并更新 taglist
 map  <F6> :!ctags -R --c++-kinds=+p+l+x --fields=+liaS --extra=+q .<CR><CR> :cs -Rbq<CR><CR> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>:TlistUpdate<CR>
 imap <F6> <ESC>:!ctags -R --c++-kinds=+p+l+x --fields=+liaS --extra=+q .<CR><CR> :cs -Rbq<CR><CR> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>:TlistUpdate<CR>
-"--c++-kinds=+p+l+x  : 为 C++ 文件增加函数原型的标签, p、l、x 默认不产生标签
-"--fields=+liaS      : 在标签文件中加入继承信息(i), 类成员的访问控制信息(a), 以及函数的指纹(S), (l)是YCM插件要求的
-"--extra=+q          : 为标签增加类修饰符, 如果没有此选项将不能对类成员补全
 map  <F9> :NERDTreeToggle<CR>
 imap <F9> <ESC>:NERDTreeToggle<CR>
 "nnoremap <c-f> :CtrlP<cr>
@@ -487,11 +483,11 @@ let g:cpp_experimental_template_highlight = 1
 "let c_no_curly_error = 1    " 出问题了就设
 
 " 5.13 Omnicppcomplete setting
-set wildmenu                " 命令行的自动补全, vim自己的功能
+set wildmenu                            " 命令行的自动补全, vim自己的功能
 set wildignore+=*/tmp/*,*\\tmp\\*,*~,*.exe,*.dll,*.so,*.o,*.obj,*.swo,*.swp,*.zip,*.pyc,*.pyo,*.png,*.jpg,*.gif  " ignore some formats
 set completeopt=longest,menu,preview    " 补全设置########## -preview?
-"set completeopt=menu,menuone       " 关掉智能补全时的预览窗口
-" 按下F3自动补全代码  按下F2根据头文件内关键字补全
+"set completeopt=menu,menuone           " 关掉智能补全时的预览窗口
+" 按下F3自动补全代码, 按下F2根据头文件内关键字补全
 "imap <F3> <C-X><C-O>
 "imap <F2> <C-X><C-I>
 "let g:OmniCpp_MayCompleteDot = 1      " autocomplete with .
