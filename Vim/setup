@@ -2,18 +2,21 @@
 
 #sudo apt-get install xclip
 #sudo easy_install -ZU autopep8 
-sudo apt-get install vim-gtk ctags cscope astyle git
+sudo apt-get install vim-gtk ctags cscope astyle git autopep8 
+
 cd ~
 git clone https://github.com/Will-Grindelwald/Linux-Configuration/tree/master/Vim ~/vim_ljc
+
 # backup
-mv -f .vim .vim_old
-mv -f .vimrc .vimrc_old
+mv -f ~/.vim ~/.vim_old
+mv -f ~/.vimrc ~/.vimrc_old
+
 # new files
-mv -f vim_ljc .vim
-mv .vim/.vimrc_ljc .vimrc
+mv -f ~/vim_ljc ~/.vim
+mv -f ~/.vim/.vimrc ~/.vimrc
+vim -c "helptags ~/.vim/doc" -c quit
 
 # 安装Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
 vim +PluginInstall +qall
 

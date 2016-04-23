@@ -2,11 +2,12 @@
 " install Vundle    github.com/VundleVim/Vundle.vim
 " install vimdoc@cn vimcdoc.sourceforge.net
 " also need install ctags & cscope & astyle
+
 set nocompatible            " nocp " turn off vi-compatible-mode
-if(has("win32") || has("win95") || has("win64") || has("win16"))
-    let g:iswindows=1
+if(has("win32") || has("win64"))
+    let g:iswindows = 1
 else
-    let g:iswindows=0
+    let g:iswindows = 0
 endif
 " clear autocmd, prevent from executing twice
 autocmd!
@@ -17,10 +18,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-" 1.1 theme
-Plugin 'altercation/vim-colors-solarized'
+" 1.1 scheme
 Plugin 'tomasr/molokai'
-Plugin 'vim-scripts/phd'             " Only for gvim
+Plugin 'vim-scripts/github-theme'
+Plugin 'altercation/vim-colors-solarized'
 
 " 1.2 buffer & window
 Plugin 'vim-scripts/taglist.vim'     " 提供单个源代码文件的函数列表之类的功能
@@ -38,13 +39,13 @@ Plugin 'Yggdroot/indentLine'         " 缩进线
 " 1.4 develop
 Plugin 'scrooloose/nerdcommenter'    " 提供快速注释/反注释代码块的功能
 "Plugin 'vim-scripts/DrawIt'          " ASCII art 风格的注释
-Plugin 'SirVer/ultisnips'            " 提供超强的快速生成代码段的功能(超越snipmate)
+"Plugin 'SirVer/ultisnips'            " 提供超强的快速生成代码段的功能(超越snipmate)
 "Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 " 1.4.1 C/C++
 Plugin 'octol/vim-cpp-enhanced-highlight'    " C++ 语法高亮
-Plugin 'OmniCppComplete'             " 提供 C++ 代码的自动补全功能
+"Plugin 'OmniCppComplete'             " 提供 C++ 代码的自动补全功能
 "Plugin 'Valloric/YouCompleteMe'      " 更强大的自动补全, 基于语义分析
 "Plugin 'Rip-Rip/clang_complete'      " 更强大的自动补全, 基于语义分析
 "Plugin 'derekwyatt/vim-fswitch'      " 与 a.vim 功能一样, 要好一些
@@ -67,11 +68,11 @@ set cindent                 " cin   " 实现C程序的缩进
 set cino=:0,g0,t0,(s,us     " 设定 C/C++ 风格自动缩进的选项
 set autoindent              " ai    " 使用自动对齐, 也就是把当前行的对齐格式应用到下一行
 set smartindent             " si    " 设置 cindent 时无效
-set copyindent              "####
+set copyindent              " ####
 
 " 2.3 Edit related
 set mouse=a                 " 始终用鼠标
-"set ttymouse=xterm2         "####
+"set ttymouse=xterm2         " ####
 set selection=inclusive
 set selectmode=mouse,key
 set whichwrap=b,s,h,l,<,>,[,]
@@ -92,7 +93,7 @@ set clipboard+=unnamed      " 共享剪贴板
 set viminfo+=!,<500         " 保存全局变量
 
 " 2.5 Display related
-syntax enable               " 开启语法高亮功能
+"syntax enable               " 开启语法高亮功能
 syntax on                   " 允许用指定语法高亮配色方案替换默认方案
 set t_Co=256
 set shortmess=atI           " 启动的时候不显示那个援助乌干达儿童的提示
@@ -138,26 +139,27 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %0(%{&encoding}\ %c:%l/%L%)\ [%p%%]\    
 
 " 2.9 GUI related
 if (has("gui_running"))
-    set guioptions+=emgTbh  " 见help
-    colorscheme desert
-    "colorscheme phd
-    "let g:rehash256 = 1
-    "colorscheme molokai
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
-    "set guifont=YaHei\ Consolas\ Hybrid\ 12
-    "set background=dark     " 背景使用黑色
+    set guioptions+=emgTbh  " 见 help
+    "colorscheme github      " 越下面的主题我越喜欢
+    "colorscheme desert
+    "let g:molokai_original = 1
+    "colorscheme molokai     " molokai 仅适用于 dark
+    "set background=dark     " 对 GUI, solarized 主题亮暗都漂亮
+    set background=light
+    colorscheme solarized
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11.5
     set guitablabel=%M\ %t
     set mousemodel=popup    " 当右键单击窗口的时候, 弹出快捷菜单。
     set nowrap              " 指定不折行。使用图形界面, 指定不折行视觉效果会好得多
     set sidescrolloff=5     " Keep 5 columns at the size
-    " 全屏开/关快捷键   "需要安装wmctl
+    " 全屏开/关快捷键       " 需要安装wmctl
     "map <silent> <F11> :call call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 else
-    colorscheme ron
-    "colorscheme github
-    "colorscheme solarized
-    "let g:rehash256 = 1
-    "colorscheme molokai
+    "colorscheme github      " 越下面的主题我越喜欢
+    "colorscheme ron
+    let g:rehash256 = 1
+    let g:molokai_original = 1
+    colorscheme molokai
     set wrap
     set linebreak           " 不在单词中间断行
 endif
@@ -168,20 +170,16 @@ endif
 au BufWinLeave * mkview
 au BufReadPost * loadview
 " remember the position of cursor latest
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif "######
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 au FileType make   setlocal noexpandtab
 "au FileType python set omnifunc=pythoncomplete#Complete
 
-" quickfix mode#######
-"au BufReadPost quickfix setlocal modifiable | silent exe 'g/^/s//\=line(".")." "/' | setlocal nomodifiable
-"au FileType c,cpp map <buffer> <A-space> :w<cr>:make<cr>
-
-" for new file, load the template of this filetype, auto insert edit info
+" for new file, load the template of this filetype, auto insert info
 au BufNewFile *.{cpp,[ch],cc,py,rb,sh} silent 0r ~/.vim/skel/Template.%:e | normal G
 au BufNewFile *.{cpp,[ch],cc,java} call SetTitle()
 map <A-F12> :call SetTitle()<CR>
-func! SetTitle()
+fun! SetTitle()
     call append(0,"// > Last Update:   ".strftime("%Y-%m-%d %H:%M:%S"))
     call append(1,"// *****************************************")
     call append(2,"// > File Name:     ".expand("%"))
@@ -192,7 +190,15 @@ func! SetTitle()
     call append(7,"// > Description:   ")
 endf
 " auto update last modified time
-au BufWritePre *.{cpp,cc,[ch],java} call setline(1,"// > Last Update:   ".strftime("%Y-%m-%d %H:%M:%S"))
+au BufWritePre,FileWritePre *.{cpp,cc,[ch],java} ks | silent call LastMod() | 's
+fun! LastMod()
+    if line("$") > 20
+        let l = 20
+    else
+        let l = line("$")
+    endif
+    exe "1," . l . "g/Last Update: /s/Last Update: .*/Last Update:   ".strftime("%Y-%m-%d %H:%M:%S")
+endf
 "} // end of 3. autocmd
 
 " 4. keyboard mapping { map: for all mode;  nmap: for normal mode;  imap: for insert mode;  `nore`: no re map
@@ -208,25 +214,35 @@ inoremap { {}<left>
 inoremap [ []<left>
 inoremap " ""<left>
 inoremap ' ''<left>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+func! ClosePair(char)   " 处理手动输入一对结对符的情况
+    if getline('.')[col('.') - 1] == a:char
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endf
 " Ctrl + a, x, c, v, z, y
-map <C-a> ggVG$"+y
-map <C-x> "+x
-map <C-c> "+y
-map <C-v> "+gP
+map  <C-a> ggVG$"+y
+map  <C-x> "+x
+map  <C-c> "+y
+map  <C-v> "+gP
 imap <C-v> <Esc>l"+gPi
-map <C-z> u
+map  <C-z> u
 imap <C-z> <Esc>ui
-map <C-y> <C-R>
+map  <C-y> <C-R>
 imap <C-y> <Esc><C-R>i
 " 上下移行
-nnoremap <A-Up> ddkP
-inoremap <A-Up> <Esc>ddkPi
+nnoremap <A-Up>   ddkP
+inoremap <A-Up>   <Esc>ddkPi
 nnoremap <A-Down> ddp
 inoremap <A-Down> <Esc>ddpi
+" tT, cS, cM, cL
 " replace tab to 4 space, depreciated by retab
 "nmap tT :%s/\t/    /g<CR>
 nmap tT :retab<CR>
-" cS, cM, cL
 nmap cS :%s/\s\+$//g<CR>:noh<CR>
 nmap cM :%s/\r$//g<CR>:noh<CR>
 nnoremap cL :g/^\s*$/d<CR>
@@ -236,100 +252,99 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 "nnoremap <F2> :vert diffsplit<CR>
 " C/C++按F5编译运行###############
 map <F5> :call Compile_Run()<CR>
-func! Compile_Run()
-    exec "w"
+fun! Compile_Run()
+    exe "w"
     if &filetype == 'c'
-        exec "make"
-        exec "!time ./%<"
+        exe "make"
+        exe "!time ./%<"
     elseif &filetype == 'cpp'
-        exec "!g++ % -o %<"
-        exec "!time ./%<"
+        exe "!g++ % -o %<"
+        exe "!time ./%<"
     elseif &filetype == 'java'
-        exec "!javac %"
-        exec "!time java %<"
+        exe "!javac %"
+        exe "!time java %<"
     elseif &filetype == 'sh'
         :!time bash %
     elseif &filetype == 'python'
-        exec "!time python %"
+        exe "!time python %"
     elseif &filetype == 'html'
-        exec "!firefox % &"
+        exe "!firefox % &"
     elseif &filetype == 'mkd' "########
-        exec "!~/.vim/markdown.pl % > %.html &"
-        exec "!firefox %.html &"
+        exe "!~/.vim/markdown.pl % > %.html &"
+        exe "!firefox %.html &"
     endif
 endf
 " C/C++的调试#########
-map <F7> :w<CR>:make<CR>
+au FileType c,cpp map <buffer> <F7> :w<CR>:make<CR>
 " 代码格式化
-"map <F12> gg=G
 map <F12> :call FormartSrc()<CR>
-func! FormartSrc()  " 需要 install astyle##########
-    exec "w"
+fun! FormartSrc()  " 需要 install astyle&autopep8##########
+    exe "w"
     if &filetype == 'c'
-        exec "!astyle --style=ansi -a --suffix=none %"
+        exe "r !astyle --style=ansi -a --suffix=none %> /var/tmp/null 2>&1"
     elseif &filetype == 'cpp' || &filetype == 'hpp'
-        exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
+        exe "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /var/tmp/null 2>&1"
     elseif &filetype == 'perl'
-        exec "!astyle --style=gnu --suffix=none %"
+        exe "r !astyle --style=gnu --suffix=none %> /var/tmp/null 2>&1"
     elseif &filetype == 'py'||&filetype == 'python'
-        exec "r !autopep8 -i --aggressive %"
+        exe "r !autopep8 -i --aggressive %> /var/tmp/null 2>&1"
     elseif &filetype == 'java'
-        exec "!astyle --style=java --suffix=none %"
+        exe "r !astyle --style=java --suffix=none %> /var/tmp/null 2>&1"
     elseif &filetype == 'jsp'
-        exec "!astyle --style=gnu --suffix=none %"
+        exe "r !astyle --style=gnu --suffix=none %> /var/tmp/null 2>&1"
     elseif &filetype == 'xml'
-        exec "!astyle --style=gnu --suffix=none %"
+        exe "r !astyle --style=gnu --suffix=none %> /var/tmp/null 2>&1"
     else
-        exec "normal gg=G"
+        exe "normal gg=G"
         return
     endif
-    exec "e! %"
+    exe "e! %"
 endf
 "} // end of 4. keyboard mapping
 
 " 5. Plugin setting {
-map <F3> :TagbarClose<CR>:TlistToggle<CR>
+map  <F3> :TagbarClose<CR>:TlistToggle<CR>
 imap <F3> <ESC>:TagbarClose<CR>:TlistToggle<CR>
-map <F4> :TlistClose<CR>:TagbarToggle<CR>
+map  <F4> :TlistClose<CR>:TagbarToggle<CR>
 imap <F4> <Esc>:TlistClose<CR>:TagbarToggle<CR>
 " 按下 F6 重新生成 tag & cscope 文件, 并更新 taglist
-map <F6> :!ctags -R --c++-kinds=+p+l+x --fields=+liaS --extra=+q .<CR><CR> :cs -Rbq<CR><CR> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>:TlistUpdate<CR>
+map  <F6> :!ctags -R --c++-kinds=+p+l+x --fields=+liaS --extra=+q .<CR><CR> :cs -Rbq<CR><CR> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>:TlistUpdate<CR>
 imap <F6> <ESC>:!ctags -R --c++-kinds=+p+l+x --fields=+liaS --extra=+q .<CR><CR> :cs -Rbq<CR><CR> :cs add ./cscope.out .<CR><CR><CR> :cs reset<CR>:TlistUpdate<CR>
 "--c++-kinds=+p+l+x  : 为 C++ 文件增加函数原型的标签, p、l、x 默认不产生标签
 "--fields=+liaS      : 在标签文件中加入继承信息(i), 类成员的访问控制信息(a), 以及函数的指纹(S), (l)是YCM插件要求的
 "--extra=+q          : 为标签增加类修饰符, 如果没有此选项将不能对类成员补全
-map <F9> :NERDTreeToggle<CR>
+map  <F9> :NERDTreeToggle<CR>
 imap <F9> <ESC>:NERDTreeToggle<CR>
 "nnoremap <c-f> :CtrlP<cr>
 
 " 5.1 ctags setting
-set tags=tags;      " 设置 tags
-"set tags+=./tags    "表示在当前工作目录下搜索 tags 文件#####
+set tags=tags;                          " 设置 tags
+"set tags+=./tags                        "表示在当前工作目录下搜索 tags 文件#####
 set tags+=~/OpenSrc/linux-*/tags        " 表示在搜寻 tags 文件的时候, 也要搜寻 ~/OpenSrc/linux-*/ 文件夹下的tags文件
 set tags+=~/OpenSrc/glibc-*/tags        " 表示在搜寻 tags 文件的时候, 也要搜寻 ~/OpenSrc/glibc-*/ 文件夹下的tags文件
 set tags+=~/OpenSrc/libcxx-*/tags       " 表示在搜寻 tags 文件的时候, 也要搜寻 ~/OpenSrc/libcxx-*/ 文件夹下的tags文件
 set tags+=~/OpenSrc/libcxxabi-*/tags    " 表示在搜寻 tags 文件的时候, 也要搜寻 ~/OpenSrc/libcxxabi-*/ 文件夹下的tags文件
 
 " 5.2 TagList setting
-let Tlist_Ctags_Cmd = 'ctags'       " 因为 ctags 已经加入 PATH
-let Tlist_Auto_Open = 0             " 不默认打开 Taglist
-let Tlist_Compart_Format = 1        " 压缩方式
-let Tlist_Enable_Fold_Column = 1    " 显示折叠树
-let Tlist_Exit_OnlyWindow = 1       " 如果 taglist 窗口是最后一个窗口, 则退出 vim
-let Tlist_File_Fold_Auto_Close = 1  " 不自动折叠
-"let Tlist_Process_File_Always = 1   " 实时更新 tags
-let Tlist_Sort_Type = "order"       " sort by order(出现顺序排序) 在 Tlist buffer 按 s 切换 sort by order or name
-let Tlist_Show_One_File = 1         " 不同时显示多个文件的 tag, 只显示当前文件的
-let Tlist_Use_Right_Window = 1      " 在右侧显示窗口
-let Tlist_WinWidth = 30             " 设置窗口宽度
+let g:Tlist_Ctags_Cmd = 'ctags'         " 因为 ctags 已经加入 PATH
+let g:Tlist_Auto_Open = 0               " 不默认打开 Taglist
+let g:Tlist_Compart_Format = 1          " 压缩方式
+let g:Tlist_Enable_Fold_Column = 1      " 显示折叠树
+let g:Tlist_Exit_OnlyWindow = 1         " 如果 taglist 窗口是最后一个窗口, 则退出 vim
+let g:Tlist_File_Fold_Auto_Close = 1    " 不自动折叠
+"let g:Tlist_Process_File_Always = 1     " 实时更新 tags
+let g:Tlist_Sort_Type = "order"         " sort by order(出现顺序排序) 在 Tlist buffer 按 s 切换 sort by order or name
+let g:Tlist_Show_One_File = 1           " 不同时显示多个文件的 tag, 只显示当前文件的
+let g:Tlist_Use_Right_Window = 1        " 在右侧显示窗口
+let g:Tlist_WinWidth = 30               " 设置窗口宽度
 
 " 5.3 Tagbar setting
-let g:tagbar_ctags_bin = 'ctags'    " ctags 程序的路径
-let g:tagbar_width = 30             " 设置窗口宽度
-let g:tagbar_sort = 0               " sort by order(出现顺序排序) 在 Tagbar buffer 按 s 切换 sort by order or name
-let g:tagbar_compact = 1            " 不显示 help
-let g:tagbar_foldlevel = 2          " 自动折叠 2 层以上
-let g:tagbar_autoshowtag = 1        " 光标下的标签自动展开折叠
+let g:tagbar_ctags_bin = 'ctags'        " ctags 程序的路径
+let g:tagbar_width = 30                 " 设置窗口宽度
+let g:tagbar_sort = 0                   " sort by order(出现顺序排序) 在 Tagbar buffer 按 s 切换 sort by order or name
+let g:tagbar_compact = 1                " 不显示 help
+let g:tagbar_foldlevel = 2              " 自动折叠 2 层以上
+let g:tagbar_autoshowtag = 1            " 光标下的标签自动展开折叠
 " 对 C++ 显示的标签进行定制
 let g:tagbar_type_cpp = {
     \ 'kinds' : [
@@ -351,14 +366,14 @@ let g:tagbar_type_cpp = {
 \ }
 
 " 5.4 NERDTree setting
-" 当打开 vim 且没有文件时自动打开 NERDTree, 只剩 NERDTree 时自动关闭#####
+ "当打开 vim 且没有文件时自动打开 NERDTree, ###只剩 NERDTree 时自动关闭(sth wrong)
 au VimEnter * if !argc() | NERDTree | endif
-au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeChDirMode = 1
 let g:NERDTreeMouseMode = 1
-let g:NERDTreeMinimalUI = 1         " 不显示冗余帮助信息
-let g:NERDTreeShowHidden = 1        " 显示隐藏文件
+let g:NERDTreeMinimalUI = 1             " 不显示冗余帮助信息
+let g:NERDTreeShowHidden = 1            " 显示隐藏文件
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeWinSize = 24
 let g:NERDTreeIgnore=['\~$', '\tmp', '\.git', '\.svn', '\.swo', '\.swp', '\.dsp', '\.opt', '\.exe', '\.dll', '\.so', '\.o', '\.obj', '\.pyc', '\.pyo']
@@ -377,24 +392,24 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " 5.6 minibufexpl setting
-let g:miniBufExplHideWhenDiff = 1   " diff模式下不自动打开
-let g:miniBufExplCycleArround = 1   " buffer 跳转到头就循环开始
+let g:miniBufExplCycleArround = 1       " buffer 跳转到头就循环开始
+let g:miniBufExplBuffersNeeded = 0      " 始终显示 buffer explorer
 " 窗口 间跳转, <C-w>最常用
 noremap <C-w> <C-w>w
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-h> <C-W>h
-noremap <C-l> <C-W>l
+"noremap <C-j> <C-W>j
+"noremap <C-k> <C-W>k
+"noremap <C-h> <C-W>h
+"noremap <C-l> <C-W>l
 noremap <C-Down>  <C-W>j
 noremap <C-Up>    <C-W>k
 noremap <C-Left>  <C-W>h
 noremap <C-Right> <C-W>l
-" buffer 间跳转           #######设得不好
-noremap <leader><Tab>   :MBEbn<CR>
-noremap <leader><S-Tab> :MBEbp<CR>
+" buffer 间跳转     " 终端接收不到C-Tab
+noremap <C-Tab> :MBEbn<CR>
+noremap <S-Tab> :MBEbp<CR>
 " Or, in MRU fashion
-"noremap <leader><TAB>   :MBEbf<CR>
-"noremap <leader><S-TAB> :MBEbb<CR>
+"noremap <C-Tab> :MBEbf<CR>
+"noremap <S-Tab> :MBEbb<CR>
 " 显示/隐藏 MiniBufExplorer 窗口
 map <Leader>b :MBEToggle<CR>
 
@@ -442,26 +457,26 @@ if has("cscope")
     set csverb
     set cspc=3
     " 将:cs find c|d|e|f|g|i|s|t name 等Cscope查找命令映射为<C-\>c等快捷键（按法是先按Ctrl+\, 然后很快再按下c）
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
+    nmap <Leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <Leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <Leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+    nmap <Leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <Leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <Leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <Leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <Leader>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
 endif
 
 " 5.11 NERDComComment setting
-let g:NERDDefaultNesting = 0    " 不自动循环注释
+let g:NERDDefaultNesting = 0        " 不自动循环注释
 let g:NERDLPlace = ""
 let g:NERDRPlace = ""
+let g:NERDCreateDefaultMappings = 0 " 取消默认的映射
 " 行注释 & 注释状态转变
-map <C-?> <plug>NERDCommenterToggle
-imap <C-?> <ESC><plug>NERDCommenterToggle i
-" 块注释 Sexy mode
+map <C-_> <plug>NERDCommenterToggle
+"imap <C-_> <ESC><plug>NERDCommenterToggle i
+" 块注释 Sexy mode, 仅normal模式, 用v, V, Ctrl+v选择块
 map <S-c> <plug>NERDCommenterSexy
-imap <S-c> <ESC><plug>NERDCommenterSexy i
 " 部分注释
 map <C-\> <plug>NERDCommenterComment
 imap <C-\> <ESC><plug>NERDCommenterComment i
@@ -479,17 +494,17 @@ set completeopt=longest,menu,preview    " 补全设置########## -preview?
 " 按下F3自动补全代码  按下F2根据头文件内关键字补全
 "imap <F3> <C-X><C-O>
 "imap <F2> <C-X><C-I>
-let OmniCpp_MayCompleteDot = 1      " autocomplete with .
-let OmniCpp_MayCompleteArrow = 1    " autocomplete with ->
-let OmniCpp_MayCompleteScope = 1    " autocomplete with ::
-let OmniCpp_SelectFirstItem = 2     " select first item (but don't insert)
-let OmniCpp_NamespaceSearch = 2     " search namespaces in this and included files
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype in popup window
-let OmniCpp_GlobalScopeSearch=1     " enable the global scope search
-let OmniCpp_DisplayMode=1           " Class scope completion mode: always show all members
-"let OmniCpp_DefaultNamespaces=["std"]
-let OmniCpp_ShowScopeInAbbr=1       " show scope in abbreviation and remove the last column
-let OmniCpp_ShowAccess=1
+"let g:OmniCpp_MayCompleteDot = 1      " autocomplete with .
+"let g:OmniCpp_MayCompleteArrow = 1    " autocomplete with ->
+"let g:OmniCpp_MayCompleteScope = 1    " autocomplete with ::
+"let g:OmniCpp_SelectFirstItem = 2     " select first item (but don't insert)
+"let g:OmniCpp_NamespaceSearch = 2     " search namespaces in this and included files
+"let g:OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype in popup window
+"let g:OmniCpp_GlobalScopeSearch=1     " enable the global scope search
+"let g:OmniCpp_DisplayMode=1           " Class scope completion mode: always show all members
+""let g:OmniCpp_DefaultNamespaces=["std"]
+"let g:OmniCpp_ShowScopeInAbbr=1       " show scope in abbreviation and remove the last column
+"let g:OmniCpp_ShowAccess=1
 "} // end of 5. Plugin setting
 
 " TMP! {

@@ -1,5 +1,4 @@
-# Vim
-Vim 的配置文件
+# Vim Customized by Ljc
+打开终端，执行下面的命令就自动安装好了：
 
-以下文件均放在 `~/`  
-新建文件的模板库　`.vim/skel/`  
+wget -qO- https://raw.githubusercontent.com/Will-Grindelwald/Linux-Configuration/master/Vim/setup | sh -x
