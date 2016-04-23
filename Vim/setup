@@ -5,7 +5,6 @@
 cd ~
 echo "Ljc正在为您安装相关程序" > Ljc
 sudo apt-get install vim-gtk ctags cscope astyle git subversion
-echo "请耐心等待" >> Ljc
 
 # backup
 rm -rf ~/vim_ljc ~/.vim_old
@@ -13,14 +12,16 @@ mv -f ~/.vim ~/.vim_old
 mv -f ~/.vimrc ~/.vimrc_old
 
 # new files
+echo "请耐心等待" >> Ljc
 svn checkout https://github.com/Will-Grindelwald/Linux-Configuration/trunk/Vim ~/vim_ljc
 mv -f ~/vim_ljc ~/.vim
 mv -f ~/.vim/.vimrc ~/.vimrc
-@rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup
-echo "即将安装完成" >> Ljc
+rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup
+
 # Plugin
+echo "即将安装完成" >> Ljc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
-vim +PluginInstall +qall
+vim Ljc +PluginInstall +qall
 vim Ljc -c "helptags ~/.vim/doc" -c "q"
 rm Ljc
 echo "安装完成"
