@@ -4,8 +4,7 @@
 #sudo easy_install -ZU autopep8 
 sudo apt-get install vim-gtk ctags cscope astyle git autopep8 
 
-cd ~
-git clone https://github.com/Will-Grindelwald/Linux-Configuration/tree/master/Vim ~/vim_ljc
+cd ~ && git clone https://github.com/Will-Grindelwald/Linux-Configuration/tree/master/Vim ~/vim_ljc
 
 # backup
 mv -f ~/.vim ~/.vim_old
