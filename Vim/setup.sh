@@ -13,10 +13,11 @@ mv -f ~/.vimrc ~/.vimrc_old
 # new files
 svn checkout https://github.com/Will-Grindelwald/Linux-Configuration/trunk/Vim ~/vim_ljc
 mv -f ~/vim_ljc ~/.vim
+vim -c "helptags ~/.vim/doc" -c quit
 mv -f ~/.vim/.vimrc ~/.vimrc
+rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup.sh
 
-# 安装Vundle
+# Plugin
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
 vim +PluginInstall +qall
-vim -c "helptags ~/.vim/doc" -c quit
 
