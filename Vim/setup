@@ -18,5 +18,4 @@ mv -f ~/.vim/.vimrc ~/.vimrc
 # 安装Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
 vim +PluginInstall +qall
-vim -c "helptags ~/.vim/doc" -c "q"
-
+vim -c "helptags ~/.vim/doc" -c quit
