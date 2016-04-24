@@ -1,4 +1,8 @@
 # Vim Customized by Ljc
-打开终端，执行下面的命令就自动安装好了：
-
-`wget -q https://raw.githubusercontent.com/Will-Grindelwald/Linux-Configuration/master/Vim/setup && sh -x setup`
+###**Installation**
+打开终端，执行下面的命令就自动安装好了:  
+`wget -q https://raw.githubusercontent.com/Will-Grindelwald/Linux-Configuration/master/Vim/setup && sh -x setup`  
+###**Pro Tips**
+see [Ljc_Help_You.txt](doc/Ljc_Help_You.txt)
+###**Change Log**
+see [chang_log.md](chang_log.md)
