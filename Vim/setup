@@ -12,7 +12,7 @@ mv -f ~/.vimrc ~/.vimrc_old
 mv -f ~/.vim ~/.vim_old
 
 # new files
-echo "请耐心等待" >> Ljc
+echo "请耐心等待" > Ljc
 svn checkout https://github.com/Will-Grindelwald/Linux-Configuration/trunk/Vim ~/vim_ljc
 mv -f ~/vim_ljc/.vimrc ~/.vimrc
 mv -f ~/vim_ljc ~/.vim
@@ -22,8 +22,8 @@ echo "正在安装插件, 花费时间取决于你的网速" > Ljc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "安装完毕将自动退出" >> Ljc
 echo "请耐心等待" >> Ljc
-vim Ljc +"PluginInstall" +"qa"
+vim Ljc -c "PluginInstall" -c "qa"
 rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup Ljc
-vim +"helptags ~/.vim/doc" +"qa"
+vim -c "helptags ~/.vim/doc" -c "qa"
 echo "安装完成"
 
