@@ -400,11 +400,11 @@ noremap <C-Up>    <C-W>k
 noremap <C-Left>  <C-W>h
 noremap <C-Right> <C-W>l
 " buffer 间跳转     " 终端接收不到C-Tab
-noremap <C-Tab>   :MBEbn<CR>
-noremap <C-S-Tab> :MBEbp<CR>
+noremap <C-Tab> :MBEbn<CR>
+noremap <S-Tab> :MBEbp<CR>
 " Or, in MRU fashion
-"noremap <C-Tab>   :MBEbf<CR>
-"noremap <C-S-Tab> :MBEbb<CR>
+"noremap <C-Tab> :MBEbf<CR>
+"noremap <S-Tab> :MBEbb<CR>
 " 显示/隐藏 MiniBufExplorer 窗口
 map <Leader>b :MBEToggle<CR>
 
