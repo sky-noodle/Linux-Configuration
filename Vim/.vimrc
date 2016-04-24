@@ -108,7 +108,7 @@ set showcmd                 " 输入的命令显示, 出来的清楚些
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:$,precedes:$
 set foldmethod=syntax       " 代码折叠
-set foldcolumn=3            " 左侧折叠栏列宽
+"set foldcolumn=3            " 左侧折叠栏列宽
 set foldlevel=3             " 启动vim时自动折叠代码的层数
 
 " 2.6 Search related
@@ -389,7 +389,6 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " 5.6 minibufexpl setting
 let g:miniBufExplCycleArround = 1       " buffer 跳转到头就循环开始
-let g:miniBufExplBuffersNeeded = 0      " 始终显示 buffer explorer
 " 窗口 间跳转, <C-w>最常用
 noremap <C-w> <C-w>w
 "noremap <C-j> <C-W>j
@@ -401,11 +400,11 @@ noremap <C-Up>    <C-W>k
 noremap <C-Left>  <C-W>h
 noremap <C-Right> <C-W>l
 " buffer 间跳转     " 终端接收不到C-Tab
-noremap <C-Tab> :MBEbn<CR>
-noremap <S-Tab> :MBEbp<CR>
+noremap <C-Tab>   :MBEbn<CR>
+noremap <C-S-Tab> :MBEbp<CR>
 " Or, in MRU fashion
-"noremap <C-Tab> :MBEbf<CR>
-"noremap <S-Tab> :MBEbb<CR>
+"noremap <C-Tab>   :MBEbf<CR>
+"noremap <C-S-Tab> :MBEbb<CR>
 " 显示/隐藏 MiniBufExplorer 窗口
 map <Leader>b :MBEToggle<CR>
 
