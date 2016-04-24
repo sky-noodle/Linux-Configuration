@@ -25,6 +25,7 @@ echo "请耐心等待" >> Ljc
 vim Ljc -c "PluginInstall" -c "qa"
 rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup Ljc
 vim -c "helptags ~/.vim/doc" -c "qa"
-cd - && rm -rf setup
-echo "安装完成"
+cd -
+echo "安装完成" >> setup
+rm -rf setup
 
