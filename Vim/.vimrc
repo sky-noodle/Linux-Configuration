@@ -17,32 +17,27 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-
 " 1.1 scheme
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/github-theme'
 Plugin 'altercation/vim-colors-solarized'
-
 " 1.2 buffer & window
 Plugin 'vim-scripts/taglist.vim'     " 提供单个源代码文件的函数列表之类的功能
 Plugin 'majutsushi/tagbar'           " 相对 TagList 能更好的支持面向对象
 Plugin 'scrooloose/nerdtree'         " NERD_tree 提供展示文件/目录列表的功能
 Plugin 'Xuyuanp/nerdtree-git-plugin' " 基于 NERDTree 的可以展示 git status 的插件
 Plugin 'fholgado/minibufexpl.vim'    " 多 buffer 时, 在编辑器上方显示 buffer 的标签
-
 " 1.3 display
 Plugin 'Yggdroot/indentLine'         " 缩进线
 "Plugin 'Lokaltog/vim-powerline'      " 状态栏增强插件,可以让你的 Vim 状态栏非常的美观
 "Plugin 'vim-airline/vim-airline'     " 状态栏增强插件,可以让你的 Vim 状态栏非常的美观
 "Plugin 'kshenoy/vim-signature'       " mark（书签）增强
-
 " 1.4 develop
 Plugin 'scrooloose/nerdcommenter'    " 提供快速注释/反注释代码块的功能
 "Plugin 'vim-scripts/DrawIt'          " ASCII art 风格的注释
 "Plugin 'SirVer/ultisnips'            " 提供超强的快速生成代码段的功能(超越snipmate)
 "Plugin 'honza/vim-snippets'
 "Plugin 'scrooloose/syntastic'
-
 " 1.4.1 C/C++
 Plugin 'octol/vim-cpp-enhanced-highlight'    " C++ 语法高亮
 "Plugin 'OmniCppComplete'             " 提供 C++ 代码的自动补全功能
@@ -50,7 +45,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight'    " C++ 语法高亮
 "Plugin 'Rip-Rip/clang_complete'      " 更强大的自动补全, 基于语义分析
 "Plugin 'derekwyatt/vim-fswitch'      " 与 a.vim 功能一样, 要好一些
 "Plugin 'a.vim'                       " 提供快速切换 .h 和 .cpp 文件的功能, 太老了
-
 call vundle#end()
 filetype plugin indent on   " 使插件能使用
 "} // end of 1. Vundle related
@@ -62,14 +56,12 @@ set smarttab                " sta   " 插入<tab>时使用'shiftwidt'
 set tabstop=4               " ts
 set shiftwidth=4            " sw
 set softtabstop=4           " sts
-
 " 2.2 Indent related
 set cindent                 " cin   " 实现C程序的缩进
 set cino=:0,g0,t0,(s,us     " 设定 C/C++ 风格自动缩进的选项
 set autoindent              " ai    " 使用自动对齐, 也就是把当前行的对齐格式应用到下一行
 set smartindent             " si    " 设置 cindent 时无效
 set copyindent              " ####
-
 " 2.3 Edit related
 set mouse=a                 " 始终用鼠标
 "set ttymouse=xterm2         " ####
@@ -80,7 +72,6 @@ set backspace=2             " 允许在插入模式下可以使用<BS>删除任�
 set showmatch               " 设置匹配模式, 类似当输入一个左括号时会匹配相应的那个右括号
 set matchtime=2             " 匹配括号高亮的时间（单位是0.2s）
 set report=0                " 使用:commands时命令, 告诉我们文件的哪一行被改变过
-
 " 2.4 Setting related
 set autochdir               " 自动切换当前目录为当前文件所在的目录
 set autoread                " 文件在外部改变时, 自动更新
@@ -91,7 +82,6 @@ set confirm                 " 在处理未保存或只读文件的时候, 弹出
 set history=100             " 记录历史的行数
 set clipboard+=unnamed      " 共享剪贴板
 set viminfo+=!,<500         " 保存全局变量
-
 " 2.5 Display related
 "syntax enable               " 开启语法高亮功能
 syntax on                   " 允许用指定语法高亮配色方案替换默认方案
@@ -110,14 +100,12 @@ set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:$,precedes:$
 set foldmethod=syntax       " 代码折叠
 "set foldcolumn=3            " 左侧折叠栏列宽
 set foldlevel=3             " 启动vim时自动折叠代码的层数
-
 " 2.6 Search related
 set hlsearch                " hls   " 高亮搜索
 set incsearch               " is    " 在输入要搜索的文字时, 实时匹配
 set ignorecase              " 搜索时忽略大小写
 set smartcase               " 但在有一个或以上大写字母时仍保持对大小写敏感
 set nowrapscan              " 禁止在搜索到文件两端时重新搜索
-
 " 2.7 Encoding related
 set fileformats=unix,dos,mac
 set encoding=utf-8          " 设置编码为中文
@@ -130,13 +118,11 @@ if(iswindows)
 endif
 "set ambiwidth=double        " 防止特殊符号无法正常显示--不要设置, 设置了会出问题
 "set iskeyword+=@,#,$,%,-,_,.    " 设置这些符号为单词
-
 " 2.8 Statusline related
 set laststatus=2            " 显示状态栏 (默认值为 1, 无法一直显示状态栏)
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %0(%{&encoding}\ %c:%l/%L%)\ [%p%%]\    " 设置在状态行显示的信息
 "set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %([%{Tlist_Get_Tagname_By_Line()}]%) %{tagbar#currenttag('[%s] ','')} %0(%{&encoding}\ %c:%l/%L%)\ [%p%%]\    " 设置在状态行显示的信息######
 "set ruler                   " ru    " 在编辑过程中, 在右下角显示光标位置的状态行--比statusline优先级小
-
 " 2.9 GUI related
 if (has("gui_running"))
     set guioptions+=emgTbh  " 见 help
@@ -166,16 +152,15 @@ endif
 "} // end of 2. utility setting
 
 " 3. autocmd {
-" remember the fold... :h mkview
+" 3.1 remember the fold... :h mkview
 au BufWinLeave * mkview
 au BufReadPost * loadview
-" remember the position of cursor latest
+" 3.2 remember the position of cursor latest
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
+" 3.3 filetype setting
 au FileType make   setlocal noexpandtab
 "au FileType python set omnifunc=pythoncomplete#Complete
-
-" for new file, load the template of this filetype, auto insert info
+" 3.4 for new file, load the template of this filetype, auto insert info
 au BufNewFile *.{cpp,[ch],cc,py,rb,sh} silent 0r ~/.vim/skel/Template.%:e | normal G
 au BufNewFile *.{cpp,[ch],cc,java} call SetTitle()
 map <A-F12> :call SetTitle()<CR>
@@ -189,7 +174,7 @@ fun! SetTitle()
     call append(6,"// *****************************************")
     call append(7,"// > Description:   ")
 endf
-" auto update last modified time
+" 3.5 auto update last modified time
 au BufWritePre,FileWritePre *.{cpp,cc,[ch],java} ks | silent call LastMod() | 's
 fun! LastMod()
     if line("$") > 20
@@ -203,12 +188,12 @@ endf
 
 " 4. keyboard mapping { map: for all mode;  nmap: for normal mode;  imap: for insert mode;  `nore`: no re map
 let mapleader = "\\"
-" 常用键
+" 4.1 常用键
 imap <C-e> <ESC>
 nmap lA    0
 nmap lE    $
 nmap qq    %
-" 括号匹配
+" 4.2 括号匹配
 inoremap ( ()<left>
 inoremap { {}<left>
 inoremap [ []<left>
@@ -224,7 +209,7 @@ func! ClosePair(char)   " 处理手动输入一对结对符的情况
         return a:char
     endif
 endf
-" Ctrl + a, x, c, v, z, y
+" 4.3 Ctrl + a, x, c, v, z, y
 map  <C-a> ggVG$"+y
 map  <C-x> "+x
 map  <C-c> "+y
@@ -234,12 +219,12 @@ map  <C-z> u
 imap <C-z> <Esc>ui
 map  <C-y> <C-R>
 imap <C-y> <Esc><C-R>i
-" 上下移行
+" 4.4 上下移行
 nnoremap <A-Up>   ddkP
 inoremap <A-Up>   <Esc>ddkPi
 nnoremap <A-Down> ddp
 inoremap <A-Down> <Esc>ddpi
-" tT, cS, cM, cL
+" 4.5 tT, cS, cM, cL
 " replace tab to 4 space, depreciated by retab
 "nmap tT :%s/\t/    /g<CR>
 nmap tT :retab<CR>
@@ -248,9 +233,9 @@ nmap cM :%s/\r$//g<CR>:noh<CR>
 nnoremap cL :g/^\s*$/d<CR>
 " space to fold or unfold
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-" diff
+" 4.6 diff
 "nnoremap <F2> :vert diffsplit<CR>
-" C/C++按F5编译运行###############
+" 4.7 C/C++按F5编译运行###############
 map <F5> :call Compile_Run()<CR>
 fun! Compile_Run()
     exe "w"
@@ -274,9 +259,9 @@ fun! Compile_Run()
         exe "!firefox %.html &"
     endif
 endf
-" C/C++的调试#########
+" 4.8 C/C++的调试#########
 au FileType c,cpp map <buffer> <F7> :w<CR>:make<CR>
-" 代码格式化
+" 4.9 代码格式化
 map <F12> :call FormartSrc()<CR>
 fun! FormartSrc()  " 需要 install astyle&autopep8##########
     exe "w"
@@ -312,7 +297,6 @@ imap <F6> <ESC>:!ctags -R --c++-kinds=+p+l+x --fields=+liaS --extra=+q .<CR><CR>
 map  <F9> :NERDTreeToggle<CR>
 imap <F9> <ESC>:NERDTreeToggle<CR>
 "nnoremap <c-f> :CtrlP<cr>
-
 " 5.1 ctags setting
 set tags=tags;                          " 设置 tags
 "set tags+=./tags                        "表示在当前工作目录下搜索 tags 文件#####
@@ -320,7 +304,6 @@ set tags+=~/OpenSrc/linux-*/tags        " 表示在搜寻 tags 文件的时候, 
 set tags+=~/OpenSrc/glibc-*/tags        " 表示在搜寻 tags 文件的时候, 也要搜寻 ~/OpenSrc/glibc-*/ 文件夹下的tags文件
 set tags+=~/OpenSrc/libcxx-*/tags       " 表示在搜寻 tags 文件的时候, 也要搜寻 ~/OpenSrc/libcxx-*/ 文件夹下的tags文件
 set tags+=~/OpenSrc/libcxxabi-*/tags    " 表示在搜寻 tags 文件的时候, 也要搜寻 ~/OpenSrc/libcxxabi-*/ 文件夹下的tags文件
-
 " 5.2 TagList setting
 let g:Tlist_Ctags_Cmd = 'ctags'         " 因为 ctags 已经加入 PATH
 let g:Tlist_Auto_Open = 0               " 不默认打开 Taglist
@@ -333,7 +316,6 @@ let g:Tlist_Sort_Type = "order"         " sort by order(出现顺序排序) 在 
 let g:Tlist_Show_One_File = 1           " 不同时显示多个文件的 tag, 只显示当前文件的
 let g:Tlist_Use_Right_Window = 1        " 在右侧显示窗口
 let g:Tlist_WinWidth = 30               " 设置窗口宽度
-
 " 5.3 Tagbar setting
 let g:tagbar_ctags_bin = 'ctags'        " ctags 程序的路径
 let g:tagbar_width = 30                 " 设置窗口宽度
@@ -360,7 +342,6 @@ let g:tagbar_type_cpp = {
         \ 'x:external:0:1'
     \ ],
 \ }
-
 " 5.4 NERDTree setting
  "当打开 vim 且没有文件时自动打开 NERDTree, ###只剩 NERDTree 时自动关闭(sth wrong)
 au VimEnter * if !argc() | NERDTree | endif
@@ -373,7 +354,6 @@ let g:NERDTreeShowHidden = 1            " 显示隐藏文件
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeWinSize = 24
 let g:NERDTreeIgnore=['\~$', '\tmp', '\.git', '\.svn', '\.swo', '\.swp', '\.dsp', '\.opt', '\.exe', '\.dll', '\.so', '\.o', '\.obj', '\.pyc', '\.pyo']
-
 " 5.5 NERDTree-git-plugin setting
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -386,7 +366,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-
 " 5.6 minibufexpl setting
 let g:miniBufExplCycleArround = 1       " buffer 跳转到头就循环开始
 " 窗口 间跳转, <C-w>最常用
@@ -407,7 +386,6 @@ noremap <S-Tab> :MBEbp<CR>
 "noremap <S-Tab> :MBEbb<CR>
 " 显示/隐藏 MiniBufExplorer 窗口
 map <Leader>b :MBEToggle<CR>
-
 " 5.7 indentLine setting
 let g:indentLine_char = '¦'
 "let g:indentLine_first_char = '¦'
@@ -419,9 +397,7 @@ let g:indentLine_color_term = 145
 let g:indentLine_color_gui = '#A4E57E'
 let g:indentLine_color_tty_light = 6
 let g:indentLine_color_tty_dark = 1
-
 " 5.8 ultisnips setting
-
 " 5.9 syntastic setting
 "let g:syntastic_error_symbol = '✗'      "set error or warning signs
 "let g:syntastic_warning_symbol = '⚠'
@@ -437,7 +413,6 @@ let g:indentLine_color_tty_dark = 1
 "let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 "let g:syntastic_enable_balloons = 1 "whether to show balloons
 "highlight SyntasticErrorSign guifg = white guibg=black
-
 " 5.10 cscope setting
 if has("cscope")
     set csto=0                              " 优先搜索cscope, 后tag
@@ -461,7 +436,6 @@ if has("cscope")
     nmap <Leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
     nmap <Leader>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
 endif
-
 " 5.11 NERDComComment setting
 let g:NERDDefaultNesting = 0        " 不自动循环注释
 let g:NERDLPlace = ""
@@ -475,12 +449,10 @@ map <S-c> <plug>NERDCommenterSexy
 " 部分注释
 map <C-\> <plug>NERDCommenterComment
 imap <C-\> <ESC><plug>NERDCommenterComment i
-
 " 5.12 vim-cpp-enhanced-highlight setting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 "let c_no_curly_error = 1    " 出问题了就设
-
 " 5.13 Omnicppcomplete setting
 set wildmenu                            " 命令行的自动补全, vim自己的功能
 set wildignore+=*/tmp/*,*\\tmp\\*,*~,*.exe,*.dll,*.so,*.o,*.obj,*.swo,*.swp,*.zip,*.pyc,*.pyo,*.png,*.jpg,*.gif  " ignore some formats
@@ -501,7 +473,4 @@ set completeopt=longest,menu,preview    " 补全设置########## -preview?
 "let g:OmniCpp_ShowScopeInAbbr=1       " show scope in abbreviation and remove the last column
 "let g:OmniCpp_ShowAccess=1
 "} // end of 5. Plugin setting
-
-" TMP! {
-"}
 
