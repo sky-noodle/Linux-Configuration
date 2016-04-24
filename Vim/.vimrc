@@ -108,8 +108,8 @@ set showcmd                 " 输入的命令显示, 出来的清楚些
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:$,precedes:$
 set foldmethod=syntax       " 代码折叠
-set foldcolumn=4            " 左侧折叠栏列宽
-set foldlevel=1             " 启动vim时自动折叠代码的层数
+set foldcolumn=3            " 左侧折叠栏列宽
+set foldlevel=3             " 启动vim时自动折叠代码的层数
 
 " 2.6 Search related
 set hlsearch                " hls   " 高亮搜索
