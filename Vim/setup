@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #sudo apt-get install xclip
-#sudo easy_install -ZU autopep8 
+#sudo easy_install -ZU autopep8
+rm -rf setup
 cd ~
 echo "Ljc 正在为您安装配套程序" > Ljc
 sudo apt-get install vim-gtk ctags cscope astyle git subversion
