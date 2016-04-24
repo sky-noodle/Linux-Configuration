@@ -5,4 +5,4 @@
 ###**Pro Tips**
 see [Ljc_Help_You.txt](doc/Ljc_Help_You.txt)
 ###**Change Log**
-see [chang_log.md](chang_log.md)
+see [change_log.md](change_log.md)
