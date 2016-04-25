@@ -107,7 +107,7 @@ set ignorecase              " 搜索时忽略大小写
 set smartcase               " 但在有一个或以上大写字母时仍保持对大小写敏感
 set nowrapscan              " 禁止在搜索到文件两端时重新搜索
 " 2.7 Encoding related
-set fileformats=unix,dos,mac
+set fileformats=unix
 set encoding=utf-8          " 设置编码为中文
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gbk,gb18030,big5,euc-jp,euc-kr,latin1 " 设置编码的自动识别。
@@ -228,8 +228,8 @@ inoremap <A-Down> <Esc>ddpi
 " replace tab to 4 space, depreciated by retab
 "nmap tT :%s/\t/    /g<CR>
 nmap tT :retab<CR>
-nmap cS :%s/\s\+$//g<CR>:noh<CR>
-nmap cM :%s/\r$//g<CR>:noh<CR>
+nmap cS :%s/\s\+$//g<CR>
+nmap cM :%s/\r\+$//g<CR>
 nnoremap cL :g/^\s*$/d<CR>
 " space to fold or unfold
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
@@ -262,7 +262,7 @@ endf
 " 4.8 C/C++的调试#########
 au FileType c,cpp map <buffer> <F7> :w<CR>:make<CR>
 " 4.9 代码格式化
-map <F12> :call FormartSrc()<CR>
+map <F12> :call FormartSrc()<CR><CR>
 fun! FormartSrc()  " 需要 install astyle&autopep8##########
     exe "w"
     if &filetype == 'c'
@@ -353,7 +353,7 @@ let g:NERDTreeMinimalUI = 1             " 不显示冗余帮助信息
 let g:NERDTreeShowHidden = 1            " 显示隐藏文件
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeWinSize = 24
-let g:NERDTreeIgnore=['\~$', '\tmp', '\.git', '\.svn', '\.swo', '\.swp', '\.dsp', '\.opt', '\.exe', '\.dll', '\.so', '\.o', '\.obj', '\.pyc', '\.pyo']
+let g:NERDTreeIgnore=['\~$', '\tmp', '\.git', '\.svn', '\.swo', '\.swp', '\.dsp', '\.opt', '\.exe', '\.dll', '\.so', '\.o', '\.obj', '\.pyc', '\.pyo', '\.zip', '\.png', '\.jpg', '\.gif', '\.pdf']
 " 5.5 NERDTree-git-plugin setting
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -455,7 +455,7 @@ let g:cpp_experimental_template_highlight = 1
 "let c_no_curly_error = 1    " 出问题了就设
 " 5.13 Omnicppcomplete setting
 set wildmenu                            " 命令行的自动补全, vim自己的功能
-set wildignore+=*/tmp/*,*\\tmp\\*,*~,*.exe,*.dll,*.so,*.o,*.obj,*.swo,*.swp,*.zip,*.pyc,*.pyo,*.png,*.jpg,*.gif  " ignore some formats
+set wildignore+=*~,*/tmp/*,*\\tmp\\*,*.swo,*.swp,*.exe,*.dll,*.so,*.o,*.obj,*.pyc,*.pyo,*.zip,*.png,*.jpg,*.gif,*.pdf  " ignore some formats
 set completeopt=longest,menu,preview    " 补全设置########## -preview?
 "set completeopt=menu,menuone           " 关掉智能补全时的预览窗口
 " 按下F3自动补全代码, 按下F2根据头文件内关键字补全
