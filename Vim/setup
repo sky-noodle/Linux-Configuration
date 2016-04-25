@@ -13,9 +13,11 @@ mv -f ~/.vim ~/.vim_old
 
 # new files
 echo "请耐心等待" > Ljc
+#wget -q https://sourceforge.net/projects/vimcdoc/files/vimcdoc/vimcdoc-1.9.0.tar.gz
 svn checkout https://github.com/Will-Grindelwald/Linux-Configuration/trunk/Vim ~/vim_ljc
 mv -f ~/vim_ljc/.vimrc ~/.vimrc
 mv -f ~/vim_ljc ~/.vim
+tar zxf .vim/vimcdoc-1.9.0.tar.gz
 
 # Plugin
 echo "正在安装插件, 花费时间取决于你的网速" > Ljc
@@ -23,9 +25,13 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "安装完毕将自动退出" >> Ljc
 echo "请耐心等待" >> Ljc
 vim Ljc -c "PluginInstall" -c "qa"
-rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup Ljc
-vim -c "helptags ~/.vim/doc" -c "qa"
+rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup ~/.vim/vimcdoc-1.9.0.tar.gz Ljc
+#vim -c "helptags ~/.vim/doc" -c "qa"
 cd -
-echo "安装完成" >> setup
-rm -rf setup
+echo "正在安装中文文档" >> ~/Ljc
+cd ~/vimcdoc-1.9.0
+./vimcdoc.sh -i
+echo "安装完成" >> ~/Ljc
+cd -
+rm -rf  ~/vimcdoc-1.9.0 ~/Ljc setup
 
