@@ -26,7 +26,7 @@ echo "安装完毕将自动退出" >> Ljc
 echo "请耐心等待" >> Ljc
 vim Ljc -c "PluginInstall" -c "qa"
 rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup ~/.vim/vimcdoc-1.9.0.tar.gz Ljc
-#vim -c "helptags ~/.vim/doc" -c "qa"
+vim -c "helptags ~/.vim/doc" -c "qa"
 cd -
 echo "正在安装中文文档" >> ~/Ljc
 cd ~/vimcdoc-1.9.0
