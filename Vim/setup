@@ -25,13 +25,11 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "安装完毕将自动退出" >> Ljc
 echo "请耐心等待" >> Ljc
 vim Ljc -c "PluginInstall" -c "qa"
-rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup ~/.vim/vimcdoc-1.9.0.tar.gz Ljc
 vim -c "helptags ~/.vim/doc" -c "qa"
-cd -
+cd - && cd ~/vimcdoc-1.9.0
 echo "正在安装中文文档" >> ~/Ljc
-cd ~/vimcdoc-1.9.0
-./vimcdoc.sh -i
+./vimcdoc.sh -i &
 echo "安装完成" >> ~/Ljc
 cd -
-rm -rf  ~/vimcdoc-1.9.0 ~/Ljc setup
+rm -rf  ~/.vim/.svn ~/.vim/README.md ~/.vim/setup ~/.vim/vimcdoc-1.9.0.tar.gz ~/vimcdoc-1.9.0 ~/Ljc setup &
 
