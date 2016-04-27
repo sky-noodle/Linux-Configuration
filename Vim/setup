@@ -29,7 +29,7 @@ rm -rf ~/.vim/.svn ~/.vim/README.md ~/.vim/setup ~/.vim/vimcdoc-1.9.0.tar.gz
 vim -c "helptags ~/.vim/doc" -c "qa"
 cd - && cd ~/vimcdoc-1.9.0
 echo "正在安装中文文档" >> ~/Ljc
-./vimcdoc.sh -i
+./vimcdoc.sh -i >> ~/Ljc
 echo "安装完成" >> ~/Ljc
 cd -
 rm -rf  ~/vimcdoc-1.9.0 ~/Ljc setup
