@@ -158,6 +158,7 @@ au BufReadPost * loadview
 " 3.2 remember the position of cursor latest
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 " 3.3 filetype setting
+au BufRead,BufNewFile *.proto set filetype=proto
 au FileType make   setlocal noexpandtab
 "au FileType python set omnifunc=pythoncomplete#Complete
 " 3.4 for new file, load the template of this filetype, auto insert info
