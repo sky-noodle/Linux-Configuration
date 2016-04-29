@@ -99,7 +99,7 @@ set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:$,precedes:$
 set foldmethod=syntax       " 代码折叠
 "set foldcolumn=3            " 左侧折叠栏列宽
-set foldlevel=3             " 启动vim时自动折叠代码的层数
+set foldlevel=4             " 启动vim时自动折叠代码的层数
 " 2.6 Search related
 set hlsearch                " hls   " 高亮搜索
 set incsearch               " is    " 在输入要搜索的文字时, 实时匹配
@@ -142,23 +142,22 @@ if (has("gui_running"))
     "map <silent> <F11> :call call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 else
     "colorscheme github      " 越下面的主题我越喜欢
-    colorscheme ron
+    "colorscheme ron
     let g:rehash256 = 1
     let g:molokai_original = 1
-    "colorscheme molokai
+    colorscheme molokai
     set wrap
     set linebreak           " 不在单词中间断行
 endif
 "} // end of 2. utility setting
 
 " 3. autocmd {
-" 3.1 remember the fold... :h mkview
-au BufWinLeave * mkview
-au BufReadPost * loadview
+" 3.1 remember the fold... :h mkview "因为与 tagbar 的 preview 窗口冲突暂时关闭
+"au BufWinLeave * mkview
+"au BufReadPost * silent loadview
 " 3.2 remember the position of cursor latest
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 " 3.3 filetype setting
-au BufRead,BufNewFile *.proto set filetype=proto
 au FileType make   setlocal noexpandtab
 "au FileType python set omnifunc=pythoncomplete#Complete
 " 3.4 for new file, load the template of this filetype, auto insert info
@@ -319,41 +318,44 @@ let g:Tlist_Use_Right_Window = 1        " 在右侧显示窗口
 let g:Tlist_WinWidth = 30               " 设置窗口宽度
 " 5.3 Tagbar setting
 let g:tagbar_ctags_bin = 'ctags'        " ctags 程序的路径
-let g:tagbar_width = 30                 " 设置窗口宽度
-let g:tagbar_sort = 0                   " sort by order(出现顺序排序) 在 Tagbar buffer 按 s 切换 sort by order or name
+let g:tagbar_autopreview = 1
+let g:tagbar_autoshowtag = 1            " 光标下的标签自动展开折叠
 let g:tagbar_compact = 1                " 不显示 help
 let g:tagbar_foldlevel = 2              " 自动折叠 2 层以上
-let g:tagbar_autoshowtag = 1            " 光标下的标签自动展开折叠
+let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_sort = 0                   " sort by order(出现顺序排序) 在 Tagbar buffer 按 s 切换 sort by order or name
+let g:tagbar_previewwin_pos = "aboveleft"
+let g:tagbar_width = 30                 " 设置窗口宽度
 " 对 C++ 显示的标签进行定制
 let g:tagbar_type_cpp = {
     \ 'kinds' : [
-        \ 'd:macros:1:0',
+        \ 'd:macros:0:1',
         \ 'p:prototypes:0:1',
         \ 'c:classes:0:1',
         \ 's:structs:0:1',
         \ 'u:unions:0:1',
         \ 'g:enums:0:1',
-        \ 'e:enumerators:0:0',
-        \ 't:typedefs:0:0',
+        \ 'e:enumerators:0:1',
+        \ 't:typedefs:0:1',
         \ 'n:namespaces:0:1',
         \ 'f:functions:0:1',
-        \ 'm:members:0:0',
+        \ 'm:members:0:1',
         \ 'v:global:0:1',
-        \ 'l:local:1:1',
+        \ 'l:local:0:1',
         \ 'x:external:0:1'
     \ ],
 \ }
 " 5.4 NERDTree setting
  "当打开 vim 且没有文件时自动打开 NERDTree, ###只剩 NERDTree 时自动关闭(sth wrong)
 au VimEnter * if !argc() | NERDTree | endif
-"au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeChDirMode = 1
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMinimalUI = 1             " 不显示冗余帮助信息
 let g:NERDTreeShowHidden = 1            " 显示隐藏文件
 let g:NERDTreeSortHiddenFirst = 1
-let g:NERDTreeWinSize = 24
+let g:NERDTreeWinSize = 30
 let g:NERDTreeIgnore=['\~$', '\tmp', '\.git', '\.svn', '\.swo', '\.swp', '\.dsp', '\.opt', '\.exe', '\.dll', '\.so', '\.o', '\.obj', '\.pyc', '\.pyo', '\.zip', '\.png', '\.jpg', '\.gif', '\.pdf']
 " 5.5 NERDTree-git-plugin setting
 let g:NERDTreeIndicatorMapCustom = {

@@ -82,5 +82,20 @@ apt-get install htop
 echo "开始安装 tree"
 apt-get install tree
 
+#dconf Editor 系统配置编辑器
+apt-get install dconf-editor
+
+#GUI软件
+#BleachBit
+#Chromium
+#Unity Tweak Tool
+
 #echo "开始安装 在终端打开"
 #sudo apt-get install nautilus-open-terminal
+
+#点击应用程序 Launcher 图标即可最小化
+#gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true
+
+#Unity 启动器移动到桌面底部
+#gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+
