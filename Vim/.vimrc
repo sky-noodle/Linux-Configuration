@@ -142,10 +142,10 @@ if (has("gui_running"))
     "map <silent> <F11> :call call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 else
     "colorscheme github      " 越下面的主题我越喜欢
-    "colorscheme ron
+    colorscheme ron
     let g:rehash256 = 1
     let g:molokai_original = 1
-    colorscheme molokai
+    "colorscheme molokai
     set wrap
     set linebreak           " 不在单词中间断行
 endif
