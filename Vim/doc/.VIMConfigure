@@ -160,6 +160,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`
 " 3.3 filetype setting
 au FileType make   setlocal noexpandtab
 "au FileType python set omnifunc=pythoncomplete#Complete
+au BufRead,BufNewFile .vimrc nnoremap cC :%s/^".*$//g<CR>
 " 3.4 for new file, load the template of this filetype, auto insert info
 au BufNewFile *.{cpp,[ch],cc,py,rb,sh} silent 0r ~/.vim/skel/Template.%:e | normal G
 au BufNewFile *.{cpp,[ch],cc,java} call SetTitle()
@@ -227,10 +228,11 @@ inoremap <A-Down> <Esc>ddpi
 " 4.5 tT, cS, cM, cL
 " replace tab to 4 space, depreciated by retab
 "nmap tT :%s/\t/    /g<CR>
-nmap tT :retab<CR>
-nmap cS :%s/\s\+$//g<CR>
-nmap cM :%s/\r\+$//g<CR>
-nnoremap cL :g/^\s*$/d<CR>
+nnoremap tT  :retab<CR>
+nnoremap cS  :%s/\s\+$//g<CR>
+nnoremap cM  :%s/\r\+$//g<CR>
+nnoremap cL  :g/^\s*$/d<CR>
+nnoremap cll :g/^\s*$\n\s*$/d<CR>
 " space to fold or unfold
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " 4.6 diff
