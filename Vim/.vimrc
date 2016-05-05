@@ -105,6 +105,7 @@ endif
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 au FileType make   setlocal noexpandtab
 au BufRead,BufNewFile .vimrc nnoremap cC :%s/^".*$//g<CR>
+au BufRead,BufNewFile *.proto set filetype=proto
 au BufNewFile *.{cpp,[ch],cc,py,rb,sh} silent 0r ~/.vim/skel/Template.%:e | normal G
 au BufNewFile *.{cpp,[ch],cc,java} call SetTitle()
 map <A-F12> :call SetTitle()<CR>

@@ -177,6 +177,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`
 au FileType make   setlocal noexpandtab
 "au FileType python set omnifunc=pythoncomplete#Complete
 au BufRead,BufNewFile .vimrc nnoremap cC :%s/^".*$//g<CR>
+au BufRead,BufNewFile *.proto set filetype=proto
 
 " 3.4 for new file, load the template of this filetype, auto insert info
 au BufNewFile *.{cpp,[ch],cc,py,rb,sh} silent 0r ~/.vim/skel/Template.%:e | normal G
