@@ -64,6 +64,11 @@ apt-get install cmake
 #export JRE_HOME=${JAVA_HOME}/jre
 #export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 #export PATH=${PATH}:${HOME}/bin:${JAVA_HOME}/bin
+#sudo update-alternatives --install /usr/bin/java java ${JAVA_HOME}/bin/java 300
+#sudo update-alternatives --install /usr/bin/jar jar ${JAVA_HOME}/bin/jar 300
+#sudo update-alternatives --install /usr/bin/javac javac ${JAVA_HOME}/bin/javac 300
+#sudo update-alternatives --install /usr/bin/javah javah ${JAVA_HOME}/bin/javah 300
+#sudo update-alternatives --install /usr/bin/javap javap ${JAVA_HOME}/bin/javap 300
 
 ##################################
 #小工具
