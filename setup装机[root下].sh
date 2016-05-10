@@ -6,14 +6,8 @@ echo 'export PS1="\[\e[32;1m\][\u@\h:\[\e[34;1m\]\w\[\e[32;1m\]]$>\[\e[0m\]"' >>
 #想改哪个用户的提示符，就放到那个用户的~/.bashrc中，尽量不要动全局变量，如/etc/profile、/etc/bash.bashrc，同时~/.bashrc是最后读取的，不会被overwrite
 #.vimrc同理
 
-#总汇
-#apt-get install build-essential vim-gtk ctags cscope astyle git ssh manpages-zh cmake
-#/etc/init.d/ssh start
-#cd ~; ssh-keygen -t rsa
-#cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys; ssh localhost
-
-#echo "开始安装 build-essential" #1604以上就不需要了
-#apt-get install build-essential
+echo "开始安装 build-essential" #1604以上就不需要了
+apt-get install build-essential
 
 echo "开始安装 Vim & GVim ctags Vundle"
 apt-get install vim-gtk ctags cscope astyle
@@ -35,9 +29,9 @@ apt-get install manpages-zh
 echo "cmake"
 apt-get install cmake
 
-#pycharm
+#VSCode*************
 
-#VSCode
+#pycharm
 
 #sublime
 
