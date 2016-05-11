@@ -31,6 +31,7 @@
 | Ctrl + Shift + Alt + [ / ] : | 全部折叠/展开 |
 | Ctrl + Shift + \ :           | 匹配括号的跳转 |
 | Ctrl + Shift + C :           | 在此处打开命令行 |
+| Ctrl + Shift + T :           | 重新打开关闭的文件 |
 | Ctrl + Shift + X :           | 删除拖尾的空格 |
 | Ctrl + Shift + J :           | Toggle Search Details ??? |
 | Ctrl + Shift + . :           | Replace with Next Value ??? |
@@ -63,7 +64,6 @@
 | F11 / Shift + F11 : | 单步调试 / 单步跳出 |
 | Ctrl + K Ctrl + I : | Show Hover |
 | Ctrl + Shift + B :  | 运行生成任务 |
-| Ctrl + Shift + T :  | 运行测试任务 |
 
 ### 窗口 相关
 | Key | Value |
