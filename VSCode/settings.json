@@ -55,5 +55,7 @@
 	// 启用要发送给 Microsoft 的故障报表。
 	"telemetry.enableCrashReporter":false,
 	// 启用要发送给 Microsoft 的使用情况数据和错误。
-	"telemetry.enableTelemetry": false,
+	"telemetry.enableTelemetry": false
+	
+	// 最后一个没有末尾逗号
 }
