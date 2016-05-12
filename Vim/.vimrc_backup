@@ -74,4 +74,3 @@ endif
 ":AT 新建一个标签页并打开c/h文件
 " 按F12时在一个新的buffer中打开c/h文件
 "nnoremap <silent> <F12> :A<CR>
-

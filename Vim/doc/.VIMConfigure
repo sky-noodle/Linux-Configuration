@@ -510,4 +510,3 @@ set completeopt=longest,menu,preview    " 补全设置########## -preview?
 "let g:OmniCpp_ShowScopeInAbbr=1       " show scope in abbreviation and remove the last column
 "let g:OmniCpp_ShowAccess=1
 "} // end of 5. Plugin setting
-

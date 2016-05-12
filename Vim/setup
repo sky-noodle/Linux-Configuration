@@ -33,4 +33,3 @@ echo "正在安装中文文档" >> ~/Ljc
 echo "安装完成" >> ~/Ljc
 cd -
 rm -rf  ~/vimcdoc-1.9.0 ~/Ljc setup
-
