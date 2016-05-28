@@ -1,9 +1,14 @@
-官方快捷键: https://code.visualstudio.com/docs/customization/keybindings
+# VSCode
 
-**Ctrl + P : 操作模式, 再输"?", 可以看见`所有可进行的操作`**  
+## Part 1 Key Binding
+
+**官方快捷键: <https://code.visualstudio.com/docs/customization/keybindings>**
+
+**Ctrl + P : 操作模式, 再输"?", 可以看见`所有可进行的操作`**
 **Ctrl + Shift + P / F1 : 命令模式(显示所有命令 & 快捷键) <=> Ctrl + P 进入操作模式, 再输">"**
 
 ### 通用 快捷键
+
 | Key | Value |
 | --- | ----- |
 | Ctrl + N/W :           | 新建/关闭文件 |
@@ -19,6 +24,7 @@
 | Ctrl + 上/下 :         | 屏幕向上/下移一行 |
 
 ### 高效 Level 1
+
 | Key | Value |
 | --- | ----- |
 | Shift + Alt + F :            | 代码格式化 |
@@ -39,6 +45,7 @@
 | ~~Ctrl + Enter / Ctrl + Shift + Enter  :~~           | ~~当前行下/上边插入一行~~ |
 
 ### 高效 Level 2
+
 | Key | Value |
 | --- | ----- |
 | ~~Ctrl + G :~~             | 转到行 <=> **Ctrl + P 进入操作模式, 再输":"** |
@@ -54,6 +61,7 @@
 | Ctrl + . :                 | Quick Fix |
 
 ### Debug & Tasks
+
 | Key | Value |
 | --- | ----- |
 | F5 / Shift + F5 :   | start & pause & continue / stop |
@@ -66,6 +74,7 @@
 | Ctrl + Shift + B :  | 运行生成任务 |
 
 ### 窗口 相关
+
 | Key | Value |
 | --- | ----- |
 | Ctrl + B :                 | 侧边栏开关 |
@@ -74,13 +83,30 @@
 | Ctrl + 0 :                 | 聚焦在Bar |
 | Ctrl + 1 / 2 / 3 :         | 聚焦在窗口1 / 2 / 3 |
 | Ctrl + ` :                 | 焦点在打开的窗口间循环 |
-| Ctrl + Alt + 左/右 :       | 焦点切换到左/右窗口 |
+| Ctrl + Alt + 左/右 :       | 焦点切换到左/右窗口(没有则创建一个相同的) |
 | Ctrl + K 左/右             | 将焦点所在窗口向左/右移动(不连续) |
 | Ctrl + K Ctrl + P :        | 在不打开Bar的情况下, 查看workspace file |
 | Ctrl + Tab :               | 导航(Ctrl + P)的历史记录 |
 
 ### Markdown 相关
+
 | Key | Value |
 | --- | ----- |
 | Ctrl + Shift + V :    | 触发预览(Markdown) |
 | Ctrl + K V :          | 打开侧边的预览(Markdown) |
+
+## Part 2 Extension
+
+扩展安装命令: `ext install ItemName`
+
+| ItemName | Introduction |
+| -------- | ------------ |
+| [cpptools][idCPP]           | Complete C/C++ language support including code-editing and debugging |
+| [python][idPY]              | Linting, Debugging (multi-threaded, remote), Intellisense, auto-completion, code formatting, snippets, and more |
+| [vim][idVIM]                | Vim emulation for Visual Studio Code |
+| [vscode-markdownlint][idMD] | Markdown linting and style checking for Visual Studio Code |
+
+[idCPP]:https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+[idPY]:https://marketplace.visualstudio.com/items?itemName=donjayamanne.python
+[idVIM]:https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+[idMD]:https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
