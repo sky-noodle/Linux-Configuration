@@ -4,4 +4,4 @@
 
 **`VSCode_Key_Bindings.md` 是我总结的快捷键(适用于VSCode1.1)**
 
-~~PS: 不得不说 VSCode 在用户体验上完虐 S\*、e\*、v\*...~~
+~~不得不说 VSCode 在用户体验上完虐 S\*、e\*、v\*...~~
