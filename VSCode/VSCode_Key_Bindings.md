@@ -101,12 +101,32 @@
 
 | ItemName | Introduction |
 | -------- | ------------ |
-| [cpptools][idCPP]           | Complete C/C++ language support including code-editing and debugging |
-| [python][idPY]              | Linting, Debugging (multi-threaded, remote), Intellisense, auto-completion, code formatting, snippets, and more |
-| [vim][idVIM]                | Vim emulation for Visual Studio Code |
-| [vscode-markdownlint][idMD] | Markdown linting and style checking for Visual Studio Code |
+| [cpptools][cpp]            | C/C++ 支持(code-editing, debugging) |
+| [vscode-markdownlint][mdl] | Markdown linting and style checking for Visual Studio Code |
+| [vscode-clang][clang]      | Completion and Diagnostic for C/C++/Objective-C using Clang |
+| [python][py]               | Linting, Debugging (multi-threaded, remote), Intellisense, auto-completion, code formatting, snippets, and more |
+| [vim][vim]                 | Vim 模拟 |
+| [latex][latex]             | LaTeX - colorizer, grammar and snippets |
+| [cmake][cmake]             | CMake 语法支持 |
+| [Spell][spell]             | Detect mistakes as you type and suggest fixes - great for Markdown or any text file |
+| [xml][xml]                 | XML Formatting, XQuery, and XPath Tools for Visual Studio Code |
+| [vscode-eslint][eslint]    | Integrates ESLint into VS Code |
+| [beautify][beautify]       | Beautify javascript, JSON, CSS, and HTML code |
+| [markdown-toc][md-toc]     | Generate TOC (table of contents) of headlines from parsed markdown file |
+| [vscode-todo][todo]        | Lists todo |
+| [Align][align]             | align text like the atom-alignment package |
 
-[idCPP]:https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
-[idPY]:https://marketplace.visualstudio.com/items?itemName=donjayamanne.python
-[idVIM]:https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
-[idMD]:https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+[cpp]:      https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+[mdl]:      https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+[clang]:    https://marketplace.visualstudio.com/items?itemName=mitaki28.vscode-clang
+[py]:       https://marketplace.visualstudio.com/items?itemName=donjayamanne.python
+[vim]:      https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+[latex]:    https://marketplace.visualstudio.com/items?itemName=ms-vscode.latex
+[cmake]:    https://marketplace.visualstudio.com/items?itemName=twxs.cmake
+[spell]:    https://marketplace.visualstudio.com/items?itemName=seanmcbreen.Spell
+[xml]:      https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml
+[eslint]:   https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+[beautify]: https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
+[md-toc]:   https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc
+[todo]:     https://marketplace.visualstudio.com/items?itemName=MattiasPernhult.vscode-todo
+[align]:    https://marketplace.visualstudio.com/items?itemName=steve8708.Align
