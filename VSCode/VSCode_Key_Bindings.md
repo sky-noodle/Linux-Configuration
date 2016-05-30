@@ -4,7 +4,7 @@
 
 **官方快捷键: <https://code.visualstudio.com/docs/customization/keybindings>**
 
-**Ctrl + P : 操作模式, 再输"?", 可以看见`所有可进行的操作`**
+**Ctrl + P : 操作模式, 再输"?", 可以看见`所有可进行的操作`**  
 **Ctrl + Shift + P / F1 : 命令模式(显示所有命令 & 快捷键) <=> Ctrl + P 进入操作模式, 再输">"**
 
 ### 通用 快捷键
