@@ -1,61 +1,63 @@
 // 将设置放入此文件中以覆盖默认设置
 {
-	//-------- 编辑器配置 --------
-	// 控制字体大小。
-	"editor.fontSize": 16,
-	
-	// 控制行号的可见性
-	// "editor.lineNumbers": true,
-	
-	// 一个选项卡等于的空格数。
-	// "editor.tabSize": 4,
+    //-------- 编辑器配置 --------
+    // 控制字体系列
+    //"editor.fontFamily": "Consolas, 'Courier New', monospace",
 
-	// 按 "Tab" 时插入空格。
-	// "editor.insertSpaces": true,
-	
-	// 控制编辑器是否应呈现空白字符
-	"editor.renderWhitespace": true,
-	
-	//-------- 文件配置 --------
-	// 配置语言的文件关联(如: "*.extension": "html")。这些关联的优先级高于已安装语言的默认关联。
-	// "files.associations": {},
+    // 控制字体大小
+    "editor.fontSize": 16,
 
-	// 读取和编写文件时将使用的默认字符集编码。
-	// "files.encoding": "utf8",
+    // 控制行号的可见性
+    // "editor.lineNumbers": true,
 
-	// 默认行尾字符。
-	// "files.eol": "\r\n",
-	
-	// 控制已更新文件的自动保存。接受的值:“off”、“afterDelay”、“onFocusChange”。如果设置为“afterDelay”，则可在 "files.autoSaveDelay" 中配置延迟。
-	// "files.autoSave": "off",
+    // 一个制表符等于的空格数
+    // "editor.tabSize": 4,
 
-	// 控制延迟(以秒为单位)，在该延迟后将自动保存更新后的文件。仅在 "files.autoSave" 设置为“afterDelay”时适用。
-	// "files.autoSaveDelay": 1000,
+    // 按 "Tab" 时插入空格
+    // "editor.insertSpaces": true,
 
-	// 配置文件路径的 glob 模式以从文件监视排除。更改此设置要求重启。如果在启动时遇到 Code 消耗大量 CPU 时间，则可以排除大型文件夹以减少初始加载。
-	// "files.watcherExclude": {
-	// 	"**/.git/objects/**": true
-	// },
-	
-	//-------- GIT 配置 --------
-	// 是否启用了 GIT
-	// "git.enabled": true,
+    // 控制编辑器是否应呈现空白字符
+    "editor.renderWhitespace": true,
 
-	// 可执行 GIT 的路径
-	// "git.path": null,
+    //-------- 文件配置 --------
+    // 配置语言的文件关联(如: "*.extension": "html")。这些关联的优先级高于已安装语言的默认关联。
+    // "files.associations": {},
 
-	// 是否启用了自动提取。
-	// "git.autofetch": true,
-	
-	//-------- 标记预览配置 --------
-	// 标记预览中供使用的 CSS 样式表的 URL 或本地路径列表。
-	// "markdown.styles": [],
-	
-	//-------- 遥测配置 --------
-	// 启用要发送给 Microsoft 的故障报表。
-	"telemetry.enableCrashReporter":false,
-	// 启用要发送给 Microsoft 的使用情况数据和错误。
-	"telemetry.enableTelemetry": false
-	
-	// 最后一个没有末尾逗号
+    // 读取和编写文件时将使用的默认字符集编码
+    // "files.encoding": "utf8",
+
+    // 默认行尾字符
+    // "files.eol": "\r\n",
+
+    // 控制已更新文件的自动保存。接受的值:“off”、“afterDelay”、“onFocusChange”。如果设置为“afterDelay”，则可在 "files.autoSaveDelay" 中配置延迟。
+    // "files.autoSave": "off",
+
+    // 控制延迟(以秒为单位)，在该延迟后将自动保存更新后的文件。仅在 "files.autoSave" 设置为“afterDelay”时适用。
+    // "files.autoSaveDelay": 1000,
+
+    // 配置文件路径的 glob 模式以从文件监视排除。更改此设置要求重启。如果在启动时遇到 Code 消耗大量 CPU 时间，则可以排除大型文件夹以减少初始加载。
+    // "files.watcherExclude": {
+    //     "**/.git/objects/**": true
+    // },
+
+    //-------- GIT 配置 --------
+    // 是否启用了 GIT
+    // "git.enabled": true,
+
+    // 可执行 GIT 的路径
+    // "git.path": null,
+
+    // 是否启用了自动提取
+    // "git.autofetch": true,
+
+    //-------- 标记预览配置 --------
+    // 标记预览中供使用的 CSS 样式表的 URL 或本地路径列表
+    // "markdown.styles": [],
+
+    //-------- 遥测配置 --------
+    // 启用要发送给 Microsoft 的使用情况数据和错误
+    "telemetry.enableTelemetry": false,
+    // 启用要发送给 Microsoft 的故障报表
+    "telemetry.enableCrashReporter":false
+
 }
