@@ -7,9 +7,6 @@
     // 控制字体大小
     "editor.fontSize": 16,
 
-    // 控制行号的可见性
-    // "editor.lineNumbers": true,
-
     // 一个制表符等于的空格数
     // "editor.tabSize": 4,
 
@@ -18,6 +15,9 @@
 
     // 控制编辑器是否应呈现空白字符
     "editor.renderWhitespace": true,
+
+    // Controls whether the editor should render indent guides
+    "editor.renderIndentGuides": true,
 
     //-------- 文件配置 --------
     // 配置语言的文件关联(如: "*.extension": "html")。这些关联的优先级高于已安装语言的默认关联。
